@@ -1,0 +1,44 @@
+{% extends 'csvsites/base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="top-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+        <h1>音楽投稿サイト</h1>
+    </div>
+    <div class="text-center px-3 py-3 pb-md-5">
+        <form action="" method="get">
+            <input type="text" name="query" value="{{ request.GET.query }}">
+            <button type="submit"><i class="fas fa-search"></i>検索</button>
+        </form>
+    </div>
+    <table class="table table-striped text-center">
+        <tr>
+            <th>登録番号</th>
+            <th>曲名</th>
+            <th>アーティスト</th>
+            <th>収録アルバム</th>
+            <th>販売日</th>
+        </tr>
+        {% for music in object_list %}
+        <tr>
+            <td>{{ music.id }}</td>
+            <td>{{ music.music_title }}</td>
+            <td>{{ music.artist_names }}</td>
+            <td>{{ music.album_name }}</td>
+            <td>{{ music.release_date }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td>データが登録されていません</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <div class="text-center">
+        <a href="upload"><i class="fas fa-chevron-circle-right"></i>アップロードページへ移動</a>
+    </div>
+
+
+</div>
+{% endblock %}
+
+
