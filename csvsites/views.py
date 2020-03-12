@@ -8,6 +8,10 @@ import csv
 UPLOAD_DIR = os.path.dirname(os.path.abspath(__file__)) + '/static/files/'
 
 
+def index(request):
+    return render(request, 'csvsites/index.html')
+
+
 def upload(request):
     if request.method == 'POST':
         form = UploadFileForm(request.POST, request.FILES)
