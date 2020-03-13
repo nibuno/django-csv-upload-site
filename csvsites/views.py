@@ -1,3 +1,4 @@
+import member as member
 from django.db.models import Q
 from django.shortcuts import render, redirect
 from django.views.generic import ListView
@@ -59,3 +60,7 @@ class MusicList(ListView):
         else:
             object_list = Music.objects.all()
         return object_list
+
+#
+
+member
